@@ -21,9 +21,9 @@ const headerNav = [
     path: "/movie",
   },
   {
-    display: "Phim TV",
-    path: "/tv",
-  },
+    display: 'Danh sách đã lưu',
+    path: '/mylist'
+  }
 ];
 
 const Header = (props) => {
@@ -71,8 +71,9 @@ const Header = (props) => {
           <div className="account">
               <Link to="/account">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPtf8mLiyb1SdiVmm1nmkwxsd2oyAUiZVEbw&usqp=CAU" alt="" />
+                <p className="nameAcc">Hero</p>
               </Link>
-          </div>
+          </div> 
       </div>
     </div>
   );
@@ -87,7 +88,7 @@ const MovieSearch = props => {
     const goToSearch = useCallback(
         () => {
             if (keyword.trim().length > 0) {
-                history.push(`/${category[props.category]}/search/${keyword}`);
+                history.push(`/movie/search/${keyword}`);
             }
         },
         [keyword, props.category, history]
@@ -114,7 +115,7 @@ const MovieSearch = props => {
                 value={keyword}
                 onChange={(e) => setKeyword(e.target.value)}
             />
-            <Button className="small" onClick={goToSearch}>
+            <Button className="small_min" onClick={goToSearch}>
                 Tìm kiếm
             </Button>
         </div>

@@ -11,6 +11,7 @@ import apiConfig from '../../api/apiConfig';
 
 import './hero-slide.scss';
 import { useHistory } from 'react-router';
+import star from '../../assets/star.png'
 
 const HeroSlide = () => {
 
@@ -23,7 +24,7 @@ const HeroSlide = () => {
             const params = {page: 1}
             try {
                 const response = await tmdbApi.getMoviesList(movieType.popular, {params});
-                setMovieItems(response.results.slice(0, 5));
+                setMovieItems(response.results.slice(11,15));
                 console.log(response);
             } catch {
                 console.log('error');
@@ -89,6 +90,9 @@ const HeroSlideItem = props => {
             <div className="hero-slide__item__content container">
                 <div className="hero-slide__item__content__info">
                     <h2 className="title">{item.title}</h2>
+                    <span className='overview'><img src={star} alt="" /></span>
+                    <br/>
+                    <span className='overview'>{item.popularity} Lượt xem</span>
                     <div className="overview">{item.overview}</div>
                     <div className="btns">
                         <Button onClick={() => hisrory.push('/movie/' + item.id)}>

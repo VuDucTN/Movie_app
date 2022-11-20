@@ -8,10 +8,12 @@ import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
 
 import Routes from './config/Routes';
+import { GlobalProvider } from './components/context/GlobalState';
 
 function App() {
     return (
         <BrowserRouter>
+            <GlobalProvider>
             <Route render={props => (
                 <>
                     <Header {...props}/>
@@ -19,6 +21,7 @@ function App() {
                     <Footer/>
                 </>
             )}/>
+            </GlobalProvider>
         </BrowserRouter>
     );
 }

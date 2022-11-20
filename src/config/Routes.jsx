@@ -4,7 +4,9 @@ import { Route, Switch } from 'react-router-dom';
 
 import Home from '../pages/Home';
 import Catalog from '../pages/Catalog';
-import Detail from '../pages/Detail';
+import Detail from '../pages/detail/Detail';
+import { Watchlist } from '../components/mylist/mylist';
+
 
 const Routes = () => {
     return (
@@ -12,6 +14,10 @@ const Routes = () => {
             <Route
                 path='/:category/search/:keyword'
                 component={Catalog}
+            />
+            <Route
+                path='/mylist'
+                component={Watchlist}
             />
             <Route
                 path='/:category/:id'
